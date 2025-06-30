@@ -2,7 +2,8 @@
 import { useAuth } from '@/hooks/useAuth';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { User, Mail, CheckCircle } from 'lucide-react';
+import { User, Mail, CheckCircle, Mic } from 'lucide-react';
+import VoiceRecorder from '@/components/VoiceRecorder';
 
 const Dashboard = () => {
   const { user, logout } = useAuth();
@@ -79,6 +80,24 @@ const Dashboard = () => {
                   Votre authentification a été validée avec les identifiants administrateur.
                 </p>
               </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Section pour l'enregistreur vocal */}
+        <div className="mt-8">
+          <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Mic className="w-5 h-5 text-purple-500" />
+                Reconnaissance Vocale (Simplifiée)
+              </CardTitle>
+              <CardDescription>
+                Enregistrez votre voix avec une phrase clé, puis testez la reconnaissance.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <VoiceRecorder />
             </CardContent>
           </Card>
         </div>
